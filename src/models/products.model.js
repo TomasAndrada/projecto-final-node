@@ -6,6 +6,24 @@ import {
     collection, getDocs, getDoc, addDoc, deleteDoc, doc
 } from 'firebase/firestore';
 
+export async function deleteProduct(id) {
+    try {
+        await deleteDoc(doc(productsCollection, id));
+    } catch(error) {
+        throw new Error(`Error deleting product ${error}`);
+    }
+}
+
+
+export async function createProduct(newProduct) {
+    try {
+        const docRef = await addDoc(productsCollection, newProduct)
+        return docRef.id
+    } catch (error) {
+        throw new Error(`Error creating product for ${productsCollection}`);
+    }
+}
+
 
 const productsCollection = collection(db, "products");
 
