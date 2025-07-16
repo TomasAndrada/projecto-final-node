@@ -1,9 +1,9 @@
 import express from "express";
-import {join, __dirname} from "./utils/index.js";
+import {join, __dirname} from "./src/utils/index.js";
 import cors from 'cors';
-import productsRouter from "./routes/products.routes.js";
-import authRouter from "./routes/auth.routes.js";
-import {authentication} from "./middlewares/authentication.js";
+import productsRouter from "./src/routes/products.routes.js";
+import authRouter from "./src/routes/auth.routes.js";
+import {authentication} from "./src/middlewares/authentication.js";
 //settings
 const app = express();
 app.set("PORT", 8000);
